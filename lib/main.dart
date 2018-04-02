@@ -14,7 +14,14 @@ class RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
-
+  Widget _buildRow(WordPair pair) {
+    return new ListTile(
+      title: new Text(
+        pair.asPascalCase,
+        style: _biggerFont,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
