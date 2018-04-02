@@ -23,6 +23,17 @@ class RandomWordsState extends State<RandomWords> {
     );
   }
 
+  Widget _buildSuggestions() {
+    return new ListView.builder(
+        itemBuilder: (context, i) {
+          final index = i ~/ 2;
+          if (index >= _suggestions.length) {
+            _suggestions.addAll(generateWordPairs().take(10));
+          }
+          return _buildRow(_suggestions[index]);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     final wordPairs = new WordPair.random();
