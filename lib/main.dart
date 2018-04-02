@@ -3,6 +3,22 @@ import 'package:english_words/english_words.dart';
 
 void main() => runApp(new HelloWorldApp());
 
+class RandomWords extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new RandomWordsState();
+  }
+}
+
+class RandomWordsState extends State<RandomWords> {
+  @override
+  Widget build(BuildContext context) {
+    final wordPairs = new WordPair.random();
+    return new Text(wordPairs.asPascalCase);
+  }
+
+}
+
 class HelloWorldApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,13 +30,7 @@ class HelloWorldApp extends StatelessWidget {
           title: new Text('Hello Flutter App'),
         ),
         body: new Center(
-//          child: new Text('Hello Flutter'),
-          child: new Text(
-            wordPair.asPascalCase,
-            style: new TextStyle(
-                fontSize: 36.0
-            ),
-          ),
+          child: new RandomWords(),
         ),
       ),
     );
