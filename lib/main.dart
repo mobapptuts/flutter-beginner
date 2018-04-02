@@ -26,6 +26,11 @@ class RandomWordsState extends State<RandomWords> {
         _isAlreadySaved ? Icons.favorite : Icons.favorite_border,
         color: _isAlreadySaved ? Colors.red : null,
       ),
+      onTap: () {
+        setState(() {
+          _isAlreadySaved ? _saved.remove(pair) : _saved.add(pair);
+        });
+      },
     );
   }
 
