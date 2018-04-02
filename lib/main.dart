@@ -36,8 +36,12 @@ class RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
-    final wordPairs = new WordPair.random();
-    return new Text(wordPairs.asPascalCase);
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Name Generator'),
+      ),
+      body: _buildSuggestions(),
+    );
   }
 
 }
@@ -48,14 +52,7 @@ class HelloWorldApp extends StatelessWidget {
     final wordPair = new WordPair.random();
     return new MaterialApp(
       title: 'Welcome to hello world app',
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Hello Flutter App'),
-        ),
-        body: new Center(
-          child: new RandomWords(),
-        ),
-      ),
+      home: new RandomWords(),
     );
   }
 
