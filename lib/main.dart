@@ -50,11 +50,21 @@ class RandomWordsState extends State<RandomWords> {
   void _pushSaved() {
     Navigator.of(context).push(
       new MaterialPageRoute(builder: (context) {
+        final tiles = _saved.map((wordPairs) {
+          return new ListTile(
+            title: new Text(
+              wordPairs.asPascalCase,
+              style: _biggerFont,
+            ),
+          );
+        });
         return new Scaffold(
           appBar: new AppBar(
             title: new Text('Saved Pairs'),
           ),
-          body: new ListView(),
+          body: new ListView(
+            children: tiles.toList()
+          ),
         );
       })
     );
