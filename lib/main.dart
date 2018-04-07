@@ -58,12 +58,17 @@ class RandomWordsState extends State<RandomWords> {
             ),
           );
         });
+        final divider = ListTile.divideTiles(
+          context: context,
+          tiles: tiles,
+          color: Colors.red
+        ).toList();
         return new Scaffold(
           appBar: new AppBar(
             title: new Text('Saved Pairs'),
           ),
           body: new ListView(
-            children: tiles.toList()
+            children: divider
           ),
         );
       })
